@@ -1,16 +1,89 @@
-# React + Vite
+# Med Rep SFA Pro - مندوب الدعاية الطبية الذكي
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🏥 نظرة عامة
+تطبيق متكامل لمندوبي الدعاية الطبية (Medical Representatives) لإدارة الزيارات والعملاء والأطباء مع دعم كامل للتحليل الجغرافي والتخطيط الذكي.
 
-Currently, two official plugins are available:
+## 🆕 التحديثات والتعديلات الجديدة
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 1️⃣ تعديلات صفحة محاكي التقارير - قسم قائمة الأطباء
+- ✅ **البحث باسم الطبيب**: تم تعديل حقل البحث من "مكان العمل" إلى "اسم الطبيب"
+- ✅ **زر تحديث الموقع الجغرافي**: في صفحة تعديل الطبيب، تم إضافة قسم GPS مع:
+  - حقل خط العرض (Latitude)
+  - حقل خط الطول (Longitude)
+  - زر تحديث الموقع الجغرافي (يحصل على الموقع الحالي تلقائياً)
+- ✅ **كشف الخرق الجيو-جغرافي (Geofencing Breach)**: عند تسجيل زيارة جديدة يتم مقارنة موقع الطبيب المؤرشف بالموقع الفعلي للزيارة وتسجيل أي خرق
+- ✅ **إلغاء خاصية "الطبيب بدون موقع مؤرشف"**: تم إزالة هذه الخاصية من صفحة تسجيل الزيارة
 
-## React Compiler
+### 2️⃣ صفحة الخريطة الجديدة 🗺️
+- ✅ **قسم الأطباء**: خريطة تفاعلية للجمهورية اليمنية مع:
+  - عرض توزيع أسماء الأطباء على مناطق الفرز الجغرافي (Clustering)
+  - ألوان مختلفة حسب كلاس الطبيب (A=أحمر، B=أصفر، C=أزرق)
+  - تفاصيل كل طبيب عند النقر على موقعه
+- ✅ **زر إنشاء الخطة الشهرية الذكية**:
+  - تحليل زيارات الأطباء من بداية السنة
+  - حساب الزيارات المطلوبة حسب الكلاس (A=4، B=3، C=1)
+  - مقارنة الزيارات المنجزة بالمطلوبة
+  - توزيع الأطباء على أيام الشهر حسب الموقع الجغرافي
+  - مراعاة المسافات وتوفير وقت المندوب
+- ✅ **قسم المستشفيات والمراكز الطبية**:
+  - عرض تفاعلي لتوزيع المستشفيات والمراكز الطبية والعيادات
+  - عند النقر على أي موقع تظهر تفاصيل المستشفى والأطباء العاملون فيها
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 3️⃣ قسم قائمة العملاء الجديد
+- ✅ يتضمن: مستشفيات، مراكز طبية، عيادات خاصة، صيدليات
+- ✅ زر إضافة عميل جديد مع:
+  - قائمة منسدلة لنوع العميل (مستشفى، مركز طبي، عيادة خاصة، صيدلية)
+  - حقل اسم العميل
+  - حقل عنوان العميل
+  - إحداثيات GPS (غير قابل للتعديل يدوياً)
+  - زر تحديث الموقع الجغرافي
+  - زر حفظ
+- ✅ زر تعديل بجانب كل عميل لتحديث البيانات والموقع
 
-## Expanding the ESLint configuration
+### 4️⃣ صفحة الأطباء الجديدة
+- ✅ فلاتر متقدمة: الشهر، اسم الطبيب، كلاس الطبيب، التاريخ من/إلى
+- ✅ جدول إحصائي يشمل:
+  - اسم الطبيب
+  - كلاس الطبيب
+  - عدد الزيارات المطلوبة شهرياً (A=4، B=3، C=1)
+  - عدد الزيارات المنجزة
+  - عدد الزيارات الكلي
+  - نسبة الإنجاز مع شريط تقدم بصري
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ التقنيات المستخدمة
+- **React 19** - مكتبة واجهة المستخدم
+- **Vite** - أداة البناء
+- **Leaflet.js** - الخرائط التفاعلية
+- **Lucide React** - الأيقونات
+- **Android WebView** - تغليف التطبيق
+
+## 📱 تشغيل المشروع
+
+### تطوير محلي
+```bash
+npm install
+npm run dev
+```
+
+### بناء للإنتاج
+```bash
+npm run build
+```
+
+## 📦 ملف APK
+ملف `Med_Rep_SFA_Pro_Updated.apk` جاهز للتثبيت على أجهزة Android.
+
+## 🔑 كلاسات الأطباء
+| الكلاس | الزيارات الشهرية المطلوبة | اللون |
+|--------|--------------------------|-------|
+| A | 4 زيارات | 🔴 أحمر |
+| B | 3 زيارات | 🟡 أصفر |
+| C | زيارة واحدة | 🔵 أزرق |
+
+## 📍 نظام الخرق الجيو-جغرافي
+- نطاق الخرخ المسموح: 200 متر من موقع الطبيب المؤرشف
+- عند تجاوز النطاق يتم تسجيل الخرق في سجل الزيارة
+- عرض تنبيه بصري عند وجود خرق
+
+## 👨‍💻 المطور
+**Tadkeera** - [GitHub](https://github.com/tadkeera)
