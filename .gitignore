@@ -1,4 +1,28 @@
-node_modules/
-dist/
-.vite/
+# Android Studio / Gradle
+*.iml
+.gradle
+/build
+local.properties
+.DS_Store
+captures/
+.externalNativeBuild
+.cxx
+.idea
+*.jks
 *.keystore
+!gradle/wrapper/*.jar
+
+# Build output
+app/release/
+app/build/
+*.apk
+*.aab
+*.ap_
+classes.dex
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
